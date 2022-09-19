@@ -4,6 +4,7 @@ RSpec.describe 'Hello world', type: :system do
   describe 'index page' do
     it 'shows the right content' do
       visit hello_world_index_path
+      sleep(2)
       expect(page).to have_content('Hello, world!')
     end
   end
