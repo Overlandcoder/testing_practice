@@ -50,4 +50,12 @@ RSpec.describe 'Creating a city', type: :feature do
       expect(page).to have_content('foo')
     end
   end
+
+  describe 'testing have_field method' do
+    it 'works' do
+      visit new_city_path
+      fill_in 'Name', with: 'some city'
+      expect(page).to have_field('Name', with: 'some city')
+    end
+  end
 end
