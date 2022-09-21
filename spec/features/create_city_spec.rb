@@ -22,7 +22,7 @@ RSpec.describe 'Creating a city', type: :feature do
 
   describe 'updating inputs' do
     it 'updates the city' do
-      test = FactoryBot.create(:city)
+      test = create(:city)
       visit edit_city_path(test)
       fill_in 'Name', with: 'Abc'
       click_on 'Update City'
@@ -33,7 +33,7 @@ RSpec.describe 'Creating a city', type: :feature do
 
   describe 'deleting a city' do
     it 'deletes the city' do
-      test = FactoryBot.create(:city, name: 'Test')
+      test = create(:city, name: 'Test')
       visit cities_path
       expect(page).to have_content('Test')
       
@@ -45,7 +45,7 @@ RSpec.describe 'Creating a city', type: :feature do
 
   describe 'testing FactoryBot' do
     it 'creates the city' do
-      some_city = FactoryBot.create(:city, name: 'foo')
+      some_city = create(:city, name: 'foo')
       visit cities_path
       expect(page).to have_content('foo')
     end
